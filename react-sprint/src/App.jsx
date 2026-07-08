@@ -3,7 +3,6 @@
 // import Car from './Car.jsx'
 // import Card from './Card.jsx'
 
-import MyComponent from "./MyComponenet";
 
 //props : they are used to send the data to the child component from the parent component
 
@@ -75,9 +74,11 @@ import MyComponent from "./MyComponenet";
 
 
 //----------------React hooks
+//----------------v2 : using the updater functions
 
 // they are built in functions that allow us to use React features inside the functional components
 
+// import MyComponent from "./MyComponenet";
 // export default function App(){
 //   return(<>
 //     <MyComponent/>
@@ -100,4 +101,25 @@ import MyComponent from "./MyComponenet";
 // }
 
 
-//-----------------------
+//-----------------------Color picker program
+
+// import ColorPicker from "./ColorPicker";
+// export default function App(){
+
+//     return(<>
+//         <ColorPicker/>
+//     </>);
+// }
+
+
+//-------------------updating OBJECTS in state
+//-------------------updating Arrays in state
+
+import MyComponent from "./MyComponent";
+
+export default function App(){
+
+    return(<>
+        <MyComponent/>
+    </>);
+}
