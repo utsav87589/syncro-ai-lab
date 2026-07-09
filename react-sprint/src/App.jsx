@@ -115,11 +115,15 @@
 //-------------------updating OBJECTS in state
 //-------------------updating Arrays in state
 
-import MyComponent from "./MyComponent";
+// import MyComponent from "./MyComponent";
 
-export default function App(){
+// export default function App(){
 
-    return(<>
-        <MyComponent/>
-    </>);
-}
+//     return(<>
+//         <MyComponent/>
+//     </>);
+// }
+
+
+//---------------todo list app
+

@@ -53,29 +53,82 @@
 
 //--------------updating the arrays
 
+// import React, {useState} from "react";
+
+// export default function MyComponent(){
+
+//     const [cars, setCars] = useState(["Mustang", "Tesla", "Camry", "Civic"]);
+
+//     function addNewCar(){
+//         const newCarValue = document.getElementById("car-input").value;
+//         document.getElementById("car-input").value = "";
+
+//         setCars(c => [...c, newCarValue]);
+//     }
+
+//     return(<>
+//         <h2>My Fav cars are : </h2>
+//         <ul>
+//             {cars.map((car, index) => 
+//             <li key = {index}>
+//                 {car}
+//             </li>
+//             )}
+//         </ul>
+//         <input type="text" id="car-input" placeholder="enter any new car"></input>
+//         <button onClick={addNewCar}>Add car</button>
+//     </>);
+// }
+
+
+//---------------updating the array of objects
+
 import React, {useState} from "react";
 
 export default function MyComponent(){
 
-    const [cars, setCars] = useState(["Mustang", "Tesla", "Camry", "Civic"]);
+    const [cars, setCars] = useState([{make : "Ford", model : "Mustang v8", year : 2026}]);
+    const [carYear, setCarYear] = useState(new Date().getFullYear());
+    const [carMake, setCarMake] = useState("");
+    const [carModel, setCarModel] = useState("");
 
-    function addNewCar(){
-        const newCarValue = document.getElementById("car-input").value;
-        document.getElementById("car-input").value = "";
+    function handleAddCar(){
+        const newcar = {make : carMake, model : carModel, year : carYear};
 
-        setCars(c => [...c, newCarValue]);
+        setCars(c => [...c, newcar]);
+
+        setCarYear(new Date().getFullYear());
+        setCarMake("");
+        setCarModel("");
+    }
+
+    function handleCarMake(e){
+        setCarMake(e.target.value);
+    }
+
+    function handleCarModel(e){
+        setCarModel(e.target.value);
+    }
+
+    function handleCarYear(e){
+        setCarYear(e.target.value);
     }
 
     return(<>
-        <h2>My Fav cars are : </h2>
+        <h3>Updating the array of objects</h3>
+        <h3>List of car objects</h3>
+
         <ul>
             {cars.map((car, index) => 
             <li key = {index}>
-                {car}
+                {car.make} {car.model} {car.year}
             </li>
             )}
         </ul>
-        <input type="text" id="car-input" placeholder="enter any new car"></input>
-        <button onClick={addNewCar}>Add car</button>
+
+        <input type = "number" value={carYear} onChange={handleCarYear}></input><br></br>
+        <input type="text" value={carMake} onChange={handleCarMake} placeholder="Enter car make"></input><br></br>
+        <input type="text" value={carModel} onChange={handleCarModel} placeholder="Enter car model"></input><br></br>
+        <button type="submit" onClick={handleAddCar}>Add Car</button>
     </>);
 }
