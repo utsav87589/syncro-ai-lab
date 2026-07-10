@@ -83,52 +83,80 @@
 
 //---------------updating the array of objects
 
-import React, {useState} from "react";
+// import React, {useState} from "react";
+
+// export default function MyComponent(){
+
+//     const [cars, setCars] = useState([{make : "Ford", model : "Mustang v8", year : 2026}]);
+//     const [carYear, setCarYear] = useState(new Date().getFullYear());
+//     const [carMake, setCarMake] = useState("");
+//     const [carModel, setCarModel] = useState("");
+
+//     function handleAddCar(){
+//         const newcar = {make : carMake, model : carModel, year : carYear};
+
+//         setCars(c => [...c, newcar]);
+
+//         setCarYear(new Date().getFullYear());
+//         setCarMake("");
+//         setCarModel("");
+//     }
+
+//     function handleCarMake(e){
+//         setCarMake(e.target.value);
+//     }
+
+//     function handleCarModel(e){
+//         setCarModel(e.target.value);
+//     }
+
+//     function handleCarYear(e){
+//         setCarYear(e.target.value);
+//     }
+
+//     return(<>
+//         <h3>Updating the array of objects</h3>
+//         <h3>List of car objects</h3>
+
+//         <ul>
+//             {cars.map((car, index) => 
+//             <li key = {index}>
+//                 {car.make} {car.model} {car.year}
+//             </li>
+//             )}
+//         </ul>
+
+//         <input type = "number" value={carYear} onChange={handleCarYear}></input><br></br>
+//         <input type="text" value={carMake} onChange={handleCarMake} placeholder="Enter car make"></input><br></br>
+//         <input type="text" value={carModel} onChange={handleCarModel} placeholder="Enter car model"></input><br></br>
+//         <button type="submit" onClick={handleAddCar}>Add Car</button>
+//     </>);
+// }
+
+
+//-------------useEffects() hooks
+
+import React, {useEffect, useState} from "react";
 
 export default function MyComponent(){
 
-    const [cars, setCars] = useState([{make : "Ford", model : "Mustang v8", year : 2026}]);
-    const [carYear, setCarYear] = useState(new Date().getFullYear());
-    const [carMake, setCarMake] = useState("");
-    const [carModel, setCarModel] = useState("");
+    const [count, setCount] = useState(0);
 
-    function handleAddCar(){
-        const newcar = {make : carMake, model : carModel, year : carYear};
+    // useEffect(() => {
+    //     document.title = `count : ${count}`;
+    // }, [])
+    
+    useEffect(() => {
+        document.title = `count : ${count}`;
+    }, [count])
 
-        setCars(c => [...c, newcar]);
-
-        setCarYear(new Date().getFullYear());
-        setCarMake("");
-        setCarModel("");
-    }
-
-    function handleCarMake(e){
-        setCarMake(e.target.value);
-    }
-
-    function handleCarModel(e){
-        setCarModel(e.target.value);
-    }
-
-    function handleCarYear(e){
-        setCarYear(e.target.value);
+    function addCount(){
+        setCount(c => c + 1);
     }
 
     return(<>
-        <h3>Updating the array of objects</h3>
-        <h3>List of car objects</h3>
-
-        <ul>
-            {cars.map((car, index) => 
-            <li key = {index}>
-                {car.make} {car.model} {car.year}
-            </li>
-            )}
-        </ul>
-
-        <input type = "number" value={carYear} onChange={handleCarYear}></input><br></br>
-        <input type="text" value={carMake} onChange={handleCarMake} placeholder="Enter car make"></input><br></br>
-        <input type="text" value={carModel} onChange={handleCarModel} placeholder="Enter car model"></input><br></br>
-        <button type="submit" onClick={handleAddCar}>Add Car</button>
+        <h2>Use effect hook</h2>
+        <p>count : {count}</p>
+        <button onClick={addCount}>add count</button>
     </>);
 }

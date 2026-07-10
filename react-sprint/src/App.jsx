@@ -127,3 +127,25 @@
 
 //---------------todo list app
 
+// import ToDo from "./ToDo";
+
+// export default function App(){
+
+//     return(<>
+//         <ToDo/>
+//     </>);
+// }
+
+
+
+//-----------useEffect() hooks
+
+import MyComponent from "./MyComponent";
+
+export default function App(){
+
+    return(<>
+        <MyComponent/>
+    </>);
+
+}
