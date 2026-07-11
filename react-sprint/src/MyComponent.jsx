@@ -134,29 +134,66 @@
 // }
 
 
-//-------------useEffects() hooks
+//-------------useEffects() hook
 
-import React, {useEffect, useState} from "react";
+// import React, {useEffect, useState} from "react";
+
+// export default function MyComponent(){
+
+//     const [count, setCount] = useState(0);
+
+//     // useEffect(() => {
+//     //     document.title = `count : ${count}`;
+//     // }, [])
+    
+//     useEffect(() => {
+//         document.title = `count : ${count}`;
+//     }, [count])
+
+//     function addCount(){
+//         setCount(c => c + 1);
+//     }
+
+//     return(<>
+//         <h2>Use effect hook</h2>
+//         <p>count : {count}</p>
+//         <button onClick={addCount}>add count</button>
+//     </>);
+// }
+
+
+//---------useRef() hook
+
+import React, {useEffect, useRef} from "react";
 
 export default function MyComponent(){
 
-    const [count, setCount] = useState(0);
+    const inputRef1 = useRef(null);
+    const inputRef2 = useRef(null);
 
-    // useEffect(() => {
-    //     document.title = `count : ${count}`;
-    // }, [])
-    
     useEffect(() => {
-        document.title = `count : ${count}`;
-    }, [count])
+        console.log('Component rendered!');
+    })
 
-    function addCount(){
-        setCount(c => c + 1);
+    function handleClick1(){
+        inputRef1.current.focus();
+        inputRef1.current.style.backgroundColor = "yellow";
+        inputRef2.current.style.backgroundColor = "";
+    }
+
+    function handleClick2(){
+        inputRef2.current.focus();
+        inputRef1.current.style.backgroundColor = "";
+        inputRef2.current.style.backgroundColor = "yellow";
     }
 
     return(<>
-        <h2>Use effect hook</h2>
-        <p>count : {count}</p>
-        <button onClick={addCount}>add count</button>
+        <div>
+            <button onClick={handleClick1}>Clicke me!</button><br></br>
+            <input ref={inputRef1}></input><br></br>
+
+            <button onClick={handleClick2}>Clicke me!</button><br></br>
+            <input ref={inputRef2}></input><br></br>
+        </div>
     </>);
 }

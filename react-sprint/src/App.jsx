@@ -138,14 +138,38 @@
 
 
 
-//-----------useEffect() hooks
+//-----------useEffect() hook
+
+// import MyComponent from "./MyComponent";
+
+// export default function App(){
+
+//     return(<>
+//         <MyComponent/>
+//     </>);
+
+// }
+
+
+//----------useContext() hook
+
+// import ComponentA from "./ComponentA";
+
+// export default function App(){
+
+//     return(<>
+//         <ComponentA/>
+//     </>);
+
+// }
+
+
+//------------useRef() hook
 
 import MyComponent from "./MyComponent";
 
 export default function App(){
-
     return(<>
         <MyComponent/>
     </>);
-
 }
